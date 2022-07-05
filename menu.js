@@ -31,6 +31,14 @@
 */
 
 //CODE HERE
+const pizza = {
+    name: 'bbq chicken pizza',
+    price:7,
+    category: 'entree',
+    popularity: 8,
+    rating: 9,
+    tags:['family', 'protein', 'popular'],
+}
 
 
 
@@ -44,6 +52,9 @@
 
 //CODE HERE
 
+let pizzaPop = pizza.popularity
+console.log(pizzaPop)
+
 
 /*
     Second, log the second tag in your pizza's
@@ -53,6 +64,10 @@
 */
 
 //CODE HERE
+
+let secondPizzaTag = pizza.tags[1]
+console.log(secondPizzaTag)
+
 
 
 /*
@@ -64,6 +79,9 @@
 
 //CODE HERE
 
+let {price} = pizza
+console.log(price)
+
 
 /*
     Fourth, and last, destructure the category
@@ -72,7 +90,12 @@
     Print the value of your category variable. 
 */
 
+
+
 //CODE HERE
+let{category} = pizza
+console.log(category)
+
 
 
 //////////////////PROBLEM 3////////////////////
@@ -89,6 +112,49 @@
 
 //CODE HERE
 
+const foodArr = [
+    {name: 'bbq chicken pizza',
+    price:7,
+    category: 'entree',
+    popularity: 8,
+    rating: 9,
+    tags:['family', 'protein', 'popular'],
+
+    },
+    {name: 'Salmon',
+    price:13,
+    category: 'entree',
+    popularity: 8,
+    rating: 9,
+    tags:['Fish', 'protein', 'healthy'],
+
+    },
+    {name: 'Chicken Sandwich',
+    price:10,
+    category: 'entree',
+    popularity: 3,
+    rating: 5,
+    tags:['fast food', 'protein', 'popular'],
+
+    },
+    {name: 'Chicken Nuggets',
+    price:4,
+    category: 'appetizer',
+    popularity: 2,
+    rating: 8,
+    tags:['family', 'kids', 'snacks'],
+
+    },
+    {name: 'spaghetti',
+    price:3.5,
+    category: 'entree',
+    popularity: 10,
+    rating: 8,
+    tags:['family', 'cheap', 'popular'],
+
+    }
+]
+
 
 
 //////////////////PROBLEM 4////////////////////
@@ -104,8 +170,12 @@
 */
 
 //CODE HERE
+function callback(element) {
+    return element.tags.includes('popular')
+}
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(callback)
+console.log(filteredFood)
 
 
 
@@ -149,6 +219,21 @@
 */
 
 //CODE HERE
+const filterByProperty = function(property, number, type) {
+    const filteredArr = foodArr.filter( (element) => {
+        if (type === 'above') {
+            return element[property] > number
+        }   else if (type === 'below') {
+            return element[property] < number
+        }
+        
+    })
+    return filteredArr
+}
+
+
+
+
 
 
 /*
@@ -159,3 +244,5 @@
 */
 
 //CODE HERE
+
+console.log(filterByProperty('popularity', 4, 'above'))
